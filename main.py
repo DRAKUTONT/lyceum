@@ -1,18 +1,18 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5.QtGui import QPainter, QColor
-from PyQt5 import uic
+from UI import Ui_Form
 from random import randint
 
 
-class MyWidget(QWidget):
+class MyWidget(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("Желтые круги")
-        uic.loadUi('UI.ui', self)
+        self.setupUi(self)
+        self.setWindowTitle("Желтые круги 2")
         self.do_paint = False
         self.pushButton.clicked.connect(self.paint)
 
@@ -29,7 +29,7 @@ class MyWidget(QWidget):
         self.do_paint = False
 
     def draw_circle(self, qp):
-        qp.setBrush(QColor(255, 255, 0))
+        qp.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
         qp.setPen(QColor(0, 0, 0))
         x, y = randint(0, 400), randint(0, 400)
         r = randint(1, 100)
