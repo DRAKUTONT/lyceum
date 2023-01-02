@@ -16,7 +16,7 @@ class Car(pygame.sprite.Sprite):
     def move(self):
         self.rect.x += self.speed
 
-        if self.rect.right == 500:
+        if self.rect.right == 600:
             self.image = pygame.transform.flip(self.image, True, False)
             self.speed = -1
 
@@ -30,7 +30,7 @@ class Car(pygame.sprite.Sprite):
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((500, 500), pygame.RESIZABLE)
+    screen = pygame.display.set_mode((600, 95), pygame.RESIZABLE)
     pygame.display.set_caption('GTA VI')
     clock = pygame.time.Clock()
 
